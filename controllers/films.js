@@ -5,6 +5,12 @@ const express = require("express")
 
 const filmsRouter = new express.Router();
 
+
+filmsRouter.get('/:id', function(req, res){
+  const id = req.params.id;
+  res.json({data: films[id]})
+})
+
 filmsRouter.get('/', function(req, res){
   res.json(films);
 })
