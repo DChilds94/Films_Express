@@ -15,4 +15,15 @@ filmsRouter.get('/', function(req, res){
   res.json(films);
 })
 
+filmsRouter.post('/', function(req, res){
+  films.push(req.body.film)
+  res.json({data: films})
+})
+
+filmsRouter.delete('/:id', function(req, res){
+  const id = req.params.id;
+  films.splice(id, 1);
+  res.json({data: films})
+})
+
 module.exports = filmsRouter;
